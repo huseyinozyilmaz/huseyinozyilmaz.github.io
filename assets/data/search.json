@@ -1,0 +1,9 @@
+---
+---
+{% assign id = 0 %}
+[{% for page in site.pages %}{% if page.title.size > 0 %}
+    {"category":"{{page.categories}}", "title":"{{page.title}}", "subtitle":"{{page.subtitle}}", "url":"{{page.url}}", "date":"{{page.date | date: "%b %-d %Y"}}", "tags":"{{page.tags}}" },{% endif %}{% endfor %}
+{% for post in site.posts %}
+    {"category":"{{post.categories}}", "title":"{{post.title}}", "subtitle":"", "url":"{{post.url}}", "date":"{{post.date | date: "%b %-d %Y"}}", "tags":"{{post.tags}}" },{% endfor %}
+    false
+]

@@ -1,0 +1,21 @@
+# Site settings
+title: Notes on Software Development &amp; Technology
+author: Huseyin M Ozyilmaz
+email: 
+description: > # this means to ignore newlines until "baseurl:"
+  I am a Software Engineer working as a Development Manager at Wood Group Intetech in the UK
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://huseyin.org" # the base hostname & protocol for your site
+twitter_username: huseyinozyilmaz
+github_username:  huseyinozyilmaz
+linkedin_username:  huseyinozyilmaz
+
+# Conversion
+markdown:    kramdown
+
+
+# Outputting
+permalink:     none
+paginate_path: /page/:num
+paginate:      5
+timezone:      null

@@ -1,0 +1,25 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="{{ site.description }}">
+
+    <title>{{ site.author }} · {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    <link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Open+Sans:400,300&amp;subset=latin,latin-ext'>
+    <link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Playfair+Display&amp;subset=latin,latin-ext'>
+    <link rel='stylesheet' type="text/css" href='//fonts.googleapis.com/css?family=Merriweather:300'>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64">
+    <link rel="icon" type="image/png" href="/assets/images/meta/favicon-16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/images/meta/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/images/meta/favicon-48.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="/assets/images/meta/favicon-64.png" sizes="64x64">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/assets/scripts/lunr.min.js"></script>
+    <script src="/assets/scripts/main.js"></script>
+</head>

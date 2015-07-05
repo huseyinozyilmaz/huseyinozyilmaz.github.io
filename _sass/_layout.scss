@@ -1,0 +1,450 @@
+/**
+ * Site header
+ */
+.site-header {
+    border-top: 5px solid $grey-color-dark;
+    border-bottom: 1px solid $grey-color-light;
+    min-height: 56px;
+
+    // Positioning context for the mobile navigation icon
+    position: relative;
+}
+
+.site-title {
+    font-size: 26px;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+
+    &,
+    &:visited {
+        color: $grey-color-dark;
+    }
+    @include media-query($on-palm) {
+        font-size: 140%;
+    }
+
+}
+.site-title:hover {
+    text-decoration:none;
+}
+.site-title:before {
+    padding-right: 5px;
+    content: url(/assets/images/meta/favicon-32.png);
+    bottom: -6px;
+    position: relative;
+}
+
+.site-nav {
+    float: right;
+    line-height: 56px;
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $text-color;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the first one
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: 30px;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey-color-dark;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            display: block;
+            padding: 5px 10px;
+        }
+    }
+}
+
+/**
+ * Site footer
+ */
+.site-footer {
+    border-top: 1px solid $grey-color-light;
+    padding: $spacing-unit 0;
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: $grey-color;
+    margin-left: -$spacing-unit / 2;
+    @extend %clearfix;
+}
+
+.footer-col {
+    float: left;
+    margin-bottom: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+    width:         calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+    width:         calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+    width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+        width:         calc(50% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+@include media-query($on-palm) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+
+
+/**
+ * Page content
+ */
+.page-content {
+    padding: $spacing-unit 0;
+    background-color: #fff;
+}
+
+.page-heading {
+    font-size: 20px;
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+    text-align: center;
+}
+
+.post-link {
+    display: block;
+    font-size: 32px;
+    font-family: $header-font-family;
+    text-align: center;
+}
+.post-link:hover {
+    text-decoration: none;
+}
+
+.pagination {
+    text-align: center;
+}
+
+/**
+ * Blog
+ */
+.blog-header {
+    max-width: 450px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+}
+.blog-logo {
+    width: 150px;
+    height: 150px;
+    background-image: url('/assets/images/profile.jpg');
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-border-radius: 100px;
+       -moz-border-radius: 100px;
+            border-radius: 100px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+}
+
+.blog-title {
+    font-family: $blog-title-font-family;
+    font-size: 28px;
+    margin-bottom: 0px;
+    padding-top:10px;
+
+    a {
+        color:#000;
+        text-decoration:none;
+    }
+}
+.blog-author {
+    font-size: 16px;
+    a {
+        color: $logo-color;
+    } 
+}
+
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: $spacing-unit;
+}
+
+.post-title {
+    font-size: 42px;
+    font-family: $header-font-family;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-content {
+    margin-bottom: $spacing-unit;
+
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+}
+
+/** 
+ * Search
+ */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 9;
+    overflow:scroll;
+    -webkit-overflow-scrolling:touch;
+    display:none;
+}
+
+.search-content {
+    height: 100%;
+    z-index: 10;
+    text-align:center;
+    color:#fff;
+}
+.search-header {
+    position: fixed;
+    width:100%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 68px 36px rgba(0, 0, 0, 0.9);
+    z-index: 13;
+}
+
+.search-header-inner {
+    h1 {
+        color: #000;
+    }
+}
+
+.search-form {
+    width: 400px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:10px;
+
+    @include media-query($on-laptop) {
+        width: 250px;
+    }
+}
+
+.search-input {
+    box-sizing: border-box;
+    font-family: "FontAwesome";
+    display: block;
+    background: rgba(255, 255, 255, 0.12);
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    white-space: nowrap;
+    border-radius: 20px;
+    border: 0;
+    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    width: 100%;
+    padding: 6px 15px;
+       
+    -webkit-transition: box-shadow 0.2s ease;
+       -moz-transition: box-shadow 0.2s ease 0s;
+         -o-transition: box-shadow 0.2s ease 0s;
+            transition: box-shadow 0.2s ease 0s;
+}
+
+.search-input::-webkit-input-placeholder::before {
+    font-family: "FontAwesome";
+    content: " \f002";
+    color:red;
+}
+.search-input::-moz-placeholder::before  {
+    font-family: "FontAwesome";
+    content: " \f002";
+    color:red;
+}
+.search-input:-ms-input-placeholder::before  {
+    font-family: "FontAwesome";
+    content: " \f002";
+    color:red;
+}
+
+.search-body {
+    padding-top: 200px;
+    @include media-query($on-palm) {
+        padding-top: 100px;
+    }
+}
+.search-results-list {
+    list-style: none;
+    margin-left:0px;
+}
+
+.search-result-wrapper {
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.search-result-wrapper:after {
+    content:""; 
+    transform: translate(-50%);
+    background: rgba(255, 255, 255, 0.12);
+    position: absolute;
+    height: 1px; 
+    width: 100px;
+    top: calc(100% - 1px);
+    left: 50%;
+}
+.search-result {
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #eee;
+    }
+}
+.search-result-category {
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.25rem;
+}
+.search-dismiss-wrapper {
+    position: fixed;
+    top:10px;
+    z-index: 14;
+    right: 15px;
+    a {
+        color: #eee;
+        font-size: 24px;
+    }
+}
+
+/**
+ * Contact Me Page
+ */
+.contact-wrapper {
+    height:250px;
+    text-align:center;
+}

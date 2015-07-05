@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<div class="home">
+    {% if paginator.page == 1 %}
+    <header class="blog-header" itemscope="" itemtype="http://schema.org/Person">
+        <div class="blog-logo"></div> 
+        <h1 class="blog-title"><a href="https://huseyin.org" itemprop="url">{{site.title}}</a></h1>
+        <h2 class="blog-author">by <a href="about" itemprop="name">{{site.author}}</a></h2>
+    </header>
+    {% endif %}
+    <ul class="post-list">
+        {% for post in paginator.posts %}
+        <li>
+            <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+            <p class="post-meta">Posted on <time datetime="{{post.date}}">{{ post.date | date: "%b %-d, %Y" }}</time></p>
+            <article class="post-content">
+                {{ post.content }}
+            </article>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+        {% else %}
+        <span>&laquo; Prev</span>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+            {% if page == paginator.page %}
+            <u>{{ page }}</u>
+            {% elsif page == 1 %}
+            <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+            {% else %}
+            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+        {% else %}
+        <span>Next &raquo;</span>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+</div>
