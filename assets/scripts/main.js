@@ -36,7 +36,7 @@ $(function() {
     var searchIndex = lunr(function () {
         this.field('tags', {boost: 10});
         this.field('title', {boost:5});
-        this.field('subtitle');
+        this.field('content');
         this.field('date');
         this.ref('url');
     });
@@ -108,6 +108,7 @@ $(function() {
     }
 
     function createSearchItem(data) {
+        var summary = $.trim(data.content).substring(0, 100).split(" ").slice(0, -1).join(" ") + "...";
         var template = '\
         <li class="search-result-wrapper"> \
             <article class="search-result"> \
@@ -117,7 +118,7 @@ $(function() {
                     <div class="search-result-subtitle">{3}</div>\
                 </a>\
             </article>\
-        </li>'.format(data.url, data.category, data.title, data.subtitle);
+        </li>'.format(data.url, data.category, data.title, summary);
         return template;
     }
 
