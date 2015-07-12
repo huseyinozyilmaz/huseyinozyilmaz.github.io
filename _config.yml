@@ -14,7 +14,7 @@ markdown:    kramdown
 
 
 # Outputting
-permalink:     /:title/
+permalink:     /posts/:title/
 paginate_path: /page/:num
 paginate:      5
 timezone:      null
