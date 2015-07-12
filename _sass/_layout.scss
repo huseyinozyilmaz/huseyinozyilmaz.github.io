@@ -301,6 +301,24 @@
     }
 }
 
+.other-posts {
+    border: 1px dotted #eee;
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 6px;
+    i {
+        padding: 0 5px;
+    }
+}
+.previous-post {
+    float:left;
+    border-right: 1px solid #eee;
+    width:50%;
+}
+.next-post {
+    float:right;
+}
+
 /** 
  * Search
  */
