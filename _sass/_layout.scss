@@ -147,6 +147,16 @@
     width:         calc(45% - (#{$spacing-unit} / 2));
 }
 
+.copyright {
+    color: $grey-color;
+    text-align: center;
+    font-size: 70%;
+    letter-spacing:1px;
+    a {
+        color: $grey-color;
+    }
+}
+
 @include media-query($on-laptop) {
     .footer-col-1,
     .footer-col-2 {
