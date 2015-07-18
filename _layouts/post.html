@@ -11,19 +11,18 @@ layout: default
         {{ content }}
     </article>
 </div>
-
-<div class="other-posts">
+<div class="pagination">
 {% if page.previous %} 
-    <div class="previous-post">
-        <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}"><i class="fa fa-angle-left"></i>Older Post</a>
-    </div>
+    <a href="{{page.previous.url}}" class="btn-icon" title="Previous Post: {{page.previous.title}}"><i class="ion-ios-arrow-left"></i></a>
+{% else %}
+    <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-left"></i></a>
 {% endif %}
+    <a href="/posts/" class="btn-icon"><i class="ion-grid"></i></a>
 {% if page.next %} 
-    <div class="next-post">
-        <a href="{{page.next.url}}" title="Next Post: {{page.next.title}}">Newer Post<i class="fa fa-angle-right"></i>
-    </div>
+    <a href="{{page.next.url}}" class="btn-icon" title="Next Post: {{page.next.title}}"><i class="ion-ios-arrow-right"></i></a>
+{% else %}
+    <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-right"></i></a>
 {% endif %}
-    <div style="clear:both;"></div>
 </div>
 
 <div id="disqus_thread"></div>

@@ -239,6 +239,31 @@ pre {
     background-color: darken($brand-color, 15%);
 }
 
+.btn-icon {
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+    width:35px;
+    height:35px;
+    line-height:35px;
+    vertical-align:middle;
+    display:inline-block;
+    text-align:center;
+    font-size:120%;
+    margin: 0px 3px;
+}
+.btn-icon:hover {
+    color: inherit;
+    background-color: #fbfbfb;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.btn-disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
 .center {
     display: block;
     margin-left: auto;

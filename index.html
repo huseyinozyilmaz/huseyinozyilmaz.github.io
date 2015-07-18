@@ -24,25 +24,25 @@ layout: default
     {% if paginator.total_pages > 1 %}
     <div class="pagination">
         {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="btn-icon" title="Previous Page"><i class="ion-ios-arrow-left"></i></a>
         {% else %}
-        <span>&laquo; Prev</span>
+        <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-left"></i></a>
         {% endif %}
 
         {% for page in (1..paginator.total_pages) %}
             {% if page == paginator.page %}
-            <u>{{ page }}</u>
+            <a href="#" class="page-number page-number-selected btn-disabled">{{ page }}</a>
             {% elsif page == 1 %}
-            <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+            <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}" class="page-number">{{ page }}</a>
             {% else %}
-            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="page-number">{{ page }}</a>
             {% endif %}
         {% endfor %}
 
         {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="btn-icon"><i class="ion-ios-arrow-right"></i></a>
         {% else %}
-        <span>Next &raquo;</span>
+        <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-right"></i></a>
         {% endif %}
     </div>
     {% endif %}

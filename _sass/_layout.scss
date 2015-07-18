@@ -219,6 +219,25 @@
 
 .pagination {
     text-align: center;
+    border-top: 1px dotted #eee;
+    border-bottom: 1px dotted #eee;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.page-number {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+    display: inline-block;
+    height: 26px;
+    vertical-align: middle;
+    padding: 5px 5px 0px 5px;
+    border-radius: 10px;
+    font-size: 90%;
+}
+.page-number-selected, .page-number:hover {
+    background-color: #fbfbfb;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /**
@@ -311,22 +330,11 @@
     }
 }
 
-.other-posts {
-    border: 1px dotted #eee;
-    padding: 10px;
-    margin-bottom: 50px;
-    border-radius: 6px;
-    i {
-        padding: 0 5px;
-    }
-}
-.previous-post {
-    float:left;
-    border-right: 1px solid #eee;
-    width:50%;
-}
-.next-post {
-    float:right;
+/** 
+ * Post List
+ */
+.post-box {
+    border: 1px solid #ccc;
 }
 
 /** 
