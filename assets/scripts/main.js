@@ -35,7 +35,7 @@ $(function() {
 
     var searchIndex = lunr(function () {
         this.field('tags', {boost: 10});
-        this.field('title', {boost:5});
+        this.field('title');
         this.field('content');
         this.field('date');
         this.ref('url');
@@ -45,7 +45,9 @@ $(function() {
     $.getJSON( "/assets/data/search.json", function( data ) {
         searchData = data;
         $.each( data, function( key, val ) {
-            searchIndex.add(val);
+            if(val) {
+                searchIndex.add(val);
+            }
         });
     });
 
@@ -98,7 +100,7 @@ $(function() {
             var searchQuery = $('.search-input').val();
 
             if(!searchQuery) {
-                $('.search-null').text('What are you looking for?');
+                $('.search-null').text("Let's find what you are looking for...");
             }
             else {
                 $('.search-null').text('No results available for {0}'.format(searchQuery));   
@@ -108,17 +110,15 @@ $(function() {
     }
 
     function createSearchItem(data) {
-        var summary = $.trim(data.content).substring(0, 100).split(" ").slice(0, -1).join(" ") + "...";
         var template = '\
         <li class="search-result-wrapper"> \
             <article class="search-result"> \
                 <a href="{0}" title="View">\
-                    <p class="search-result-category">{1}</p>\
-                    <h1 class="search-result-title">{2}</h1>\
-                    <div class="search-result-subtitle">{3}</div>\
+                    <h1 class="search-result-title">{1}</h1>\
+                    <div class="search-result-subtitle">{2}</div>\
                 </a>\
             </article>\
-        </li>'.format(data.url, data.category, data.title, summary);
+        </li>'.format(data.url, data.title, data.excerpt);
         return template;
     }
 

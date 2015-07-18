@@ -55,6 +55,9 @@
             margin-left: 20px;
         }
     }
+    .page-link-search {
+        font-size: 120%;
+    }
 
     @include media-query($on-palm) {
         position: absolute;
