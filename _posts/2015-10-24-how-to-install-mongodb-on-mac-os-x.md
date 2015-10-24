@@ -7,7 +7,7 @@ categories: posts
 
 Steps to show how to install MongoDB on Mac OS X.
 
-1. MongoDB 3.0.7
+1. [MongoDB] 3.0.7
 2. Mac OS X 10.11.1
 
 The most straight forword way to install MongoDB is to use [HomeBrew]
@@ -33,3 +33,4 @@ By default, the mongod process uses the /data/db directory. Let's create it:
 press **Control+C** in the terminal where the mongod instance is running.
 
 [Homebrew]:       http://brew.sh/
+[MongoDB]:        https://www.mongodb.org/
