@@ -15,9 +15,12 @@ markdown:    kramdown
 
 # Outputting
 permalink:     /posts/:title/
-paginate_path: /page/:num
-paginate:      5
 timezone:      null
+
+# Pagination
+gems:          [jekyll-paginate]
+paginate:      5
+paginate_path: /page/:num
 
 include: ['_pages']
 relative_permalinks: false
