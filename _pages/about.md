@@ -3,6 +3,7 @@ layout: page
 title: About
 subtitle: Who am I?
 permalink: /about/
+categories: page
 tags: Huseyin me author owner
 ---
 
