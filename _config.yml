@@ -24,3 +24,6 @@ paginate_path: /page/:num
 
 include: ['_pages']
 relative_permalinks: false
+
+# Running Mode online/offline -> Default: online
+mode: offline
