@@ -29,7 +29,7 @@ $(function() {
     }
 
     function closeSearchDialog() {
-        $('html, body').css({ 'overflow': 'auto', 'height': 'auto'});
+        $('html, body').css({ 'overflow': 'auto', 'height': '100%'});
         $('.search-overlay').hide();
     }
 
