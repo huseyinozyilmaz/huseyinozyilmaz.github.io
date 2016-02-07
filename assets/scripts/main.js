@@ -49,6 +49,13 @@ $(function() {
                 searchIndex.add(val);
             }
         });
+    })
+    .fail(function(jqXHR, status, error){
+        if(status === 'parsererror'){
+            console.log("search.json is not a valid json");
+        } else {
+            console.log(error);
+        }
     });
 
     $('.search-input').on('input', function(event) {
