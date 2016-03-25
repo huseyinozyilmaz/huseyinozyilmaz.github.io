@@ -5,7 +5,7 @@ date:   2016-03-25 23:06:00
 categories: posts
 ---
 
-If you are using MongoDB version 3 and you would like to upgrate it to version 3.2 then :Steps to show how to install MongoDB on Mac OS X.
+If you are using MongoDB version 3.0.x and you would like to upgrate it to version 3.2 then:
 
 {% highlight bash %}
 brew update
