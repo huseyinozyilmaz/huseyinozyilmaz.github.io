@@ -1,29 +1,28 @@
 # Site settings
 title: Notes on Software Development &amp; Technology
 author: Huseyin M Ozyilmaz
-email: 
-description: I am a Software Engineer working as a Development Manager at Wood Group Intetech in the UK
+email:
+description: I am a Software Engineer working as a Development Manager at Wood plc in the UK
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://huseyin.org" # the base hostname & protocol for your site
 twitter_username: huseyinozyilmaz
-github_username:  huseyinozyilmaz
-linkedin_username:  huseyinozyilmaz
+github_username: huseyinozyilmaz
+linkedin_username: huseyinozyilmaz
 
 # Conversion
-markdown:    kramdown
-
-
+markdown: kramdown
 # Outputting
-permalink:     /posts/:title/
-timezone:      null
+permalink: /posts/:title/
+timezone: null
 
 # Pagination
-gems:          [jekyll-paginate]
-paginate:      5
+plugins: [jekyll-paginate]
+paginate: 5
 paginate_path: /page/:num
 
 include: ['_pages']
 relative_permalinks: false
 
-# Running Mode online/offline -> Default: online
-mode: offline
+# Development mode where js libraries are served from local storage
+# Running Mode online/offline -> Default: online.
+mode: online
