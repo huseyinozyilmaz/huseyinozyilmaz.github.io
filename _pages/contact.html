@@ -5,8 +5,93 @@ categories: page
 permalink: /contact/
 ---
 <div class="contact-wrapper">
-    <a href="{{page.url}}" title="Show Contact Form"><i class="ion-ios-email-outline contact-icon"></i></a>
-    <p>or</p>
-    <p>Go to <a href="{{site.url}}">homepage</a></p>
+  <h4>Use the form below to share your questions, ideas, comments and feedback.</h4>
+  <form id="contact-form" role="form" action="https://postman.etilia.com/5f1beb68-1500-4cfb-acc1-8d5a9f9e8e4b" method="POST">
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea class="form-control" id="message" name="message" placeholder="Type your message here..."></textarea>
+    </div>
+    <div class="form-group">
+      <label for="replyto">Email</label>
+      <input class="form-control" id="replyto" name="replyto" autocomplete="off" placeholder="Your email address" type="email">
+    </div>
+    <div class="form-group">
+      <label for="fullname">Name</label>
+      <input class="form-control" id="fullname" name="fullname" placeholder="Your name" type="text">
+    </div>
+    <div class="form-group-submit">
+      <button id="btn-submit" type="submit" class="btn btn-success">Send</button>
+    </div>
+    <input class="form-control" id="signtime" name="signtime" type="hidden">
+    <input class="form-control" id="signclick" name="signclick" type="hidden">
+  </form>
 </div>
-<script>(function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);})(window, document, '_gscq','script','//widgets.getsitecontrol.com/20837/script.js');</script>
+
+<script type="text/javascript">
+$(function() {
+  var loaded = Date.now()
+
+  $('#btn-submit').click(function (e) {
+    $('#signclick').val('ctrl-' + Math.random().toString(36).substr(2, 5) + '-ctrl')
+  })
+
+  function renderMessages (messages) {
+    var list = ''
+    $.each(messages, function(index, value){
+      list = list + '<br><small>' + value + '</small>'
+    })
+    return list
+  }
+
+  $('#contact-form').validate({
+    rules: {
+      message: {
+        required: true
+      },
+      replyto: {
+        required: true,
+        email: true
+      },
+      fullname: {
+        required: true
+      }
+    },
+    submitHandler: function(form) {
+      $form = $(form)
+      $('#signtime').val(Date.now() - loaded)
+      var action = $form.attr('action')
+      var formarray = $form.serializeArray()
+      var json = {}
+      jQuery.each(formarray, function() {
+        json[this.name] = this.value || ''
+      })
+      $.post(action, json, function(response, status) {
+        if (status === 'success' && response.success) {
+          swal({
+            title: 'Thank you!',
+            content: {
+              element: 'div',
+              attributes: {
+                innerHTML: '<p>Your message has been successfully sent.</p><p>I appreciate that you’ve taken the time to write me. I’ll get back to you as soon as possible.</p>',
+              }
+            },
+            icon: 'success',
+          })
+          $form.trigger('reset')
+        } else {
+          swal({
+            title: 'Oops...',
+            content: {
+              element: 'p',
+              attributes: {
+                innerHTML: 'Something went wrong! Possible reason(s): ' + renderMessages(response.messages),
+              }
+            },
+            icon: 'error',
+          })
+        }
+      })
+    }
+  })
+})
+</script>
