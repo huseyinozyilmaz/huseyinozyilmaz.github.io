@@ -41,7 +41,7 @@ $(function() {
   })
   var searchData = []
 
-  $.getJSON('/assets/data/search2.json', function (data) {
+  $.getJSON('/assets/data/search.json', function (data) {
     searchData = data
     $.each(data, function (key, val) {
       if(val) {
