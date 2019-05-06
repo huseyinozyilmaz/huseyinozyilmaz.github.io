@@ -12,16 +12,16 @@ layout: default
     </article>
 </div>
 <div class="pagination">
-{% if page.previous %} 
-    <a href="{{page.previous.url}}" class="btn-icon" title="Previous Post: {{page.previous.title}}"><i class="ion-ios-arrow-left"></i></a>
+{% if page.previous %}
+    <a href="{{page.previous.url}}" class="btn-icon" aria-label="Previous Post" title="Previous Post: {{page.previous.title}}"><i class="ion-ios-arrow-left"></i></a>
 {% else %}
-    <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-left"></i></a>
+    <a href="#" class="btn-icon btn-disabled" aria-label="Previous Post"><i class="ion-ios-arrow-left"></i></a>
 {% endif %}
-    <a href="/posts/" class="btn-icon"><i class="ion-grid"></i></a>
-{% if page.next %} 
-    <a href="{{page.next.url}}" class="btn-icon" title="Next Post: {{page.next.title}}"><i class="ion-ios-arrow-right"></i></a>
+    <a href="/posts/" class="btn-icon" aria-label="Show all posts"><i class="ion-grid"></i></a>
+{% if page.next %}
+    <a href="{{page.next.url}}" class="btn-icon" aria-label="Next Post" title="Next Post: {{page.next.title}}"><i class="ion-ios-arrow-right"></i></a>
 {% else %}
-    <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-right"></i></a>
+    <a href="#" class="btn-icon btn-disabled" aria-label="Next Post"><i class="ion-ios-arrow-right"></i></a>
 {% endif %}
 </div>
 
@@ -31,7 +31,7 @@ layout: default
     var disqus_shortname = 'huseyinorg',
         disqus_identifier = '{{ page.path | split:'/' | last | cgi_escape }}',
         disqus_url        = '{{ site.url }}{{ page.url | uri_escape }}';
-    
+
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
