@@ -4,7 +4,7 @@ layout: default
 <div class="home">
     {% if paginator.page == 1 %}
     <header class="blog-header" itemscope="" itemtype="http://schema.org/Person">
-        <div class="blog-logo"></div> 
+        <div class="blog-logo"></div>
         <h1 class="blog-title"><a href="https://huseyin.org" itemprop="url">{{site.title}}</a></h1>
         <h2 class="blog-author">by <a href="/about/" itemprop="name">{{site.author}}</a></h2>
     </header>
@@ -20,13 +20,13 @@ layout: default
         </li>
         {% endfor %}
     </ul>
-    
+
     {% if paginator.total_pages > 1 %}
     <div class="pagination">
         {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="btn-icon" title="Previous Page"><i class="ion-ios-arrow-left"></i></a>
         {% else %}
-        <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-left"></i></a>
+        <a href="#" class="btn-icon btn-disabled" title="No Previous Page"><i class="ion-ios-arrow-left"></i></a>
         {% endif %}
 
         {% for page in (1..paginator.total_pages) %}
@@ -40,11 +40,11 @@ layout: default
         {% endfor %}
 
         {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="btn-icon"><i class="ion-ios-arrow-right"></i></a>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="btn-icon" title="Next Page"><i class="ion-ios-arrow-right"></i></a>
         {% else %}
-        <a href="#" class="btn-icon btn-disabled"><i class="ion-ios-arrow-right"></i></a>
+        <a href="#" class="btn-icon btn-disabled" title="No Next Page"><i class="ion-ios-arrow-right"></i></a>
         {% endif %}
     </div>
     {% endif %}
-    
+
 </div>
