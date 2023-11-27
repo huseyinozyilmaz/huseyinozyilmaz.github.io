@@ -125,18 +125,8 @@ $(function() {
   }
 
   /********* Contact Form *********/
-  var loaded = Date.now()
-
-  $('#btn-submit').click(function (e) {
-    $('#signclick').val('ctrl-' + Math.random().toString(36).substr(2, 5) + '-ctrl')
-  })
-
-  function renderMessages (messages) {
-    var list = ''
-    $.each(messages, function(index, value){
-      list = list + '<br><small>' + value + '</small>'
-    })
-    return list
+  function renderErrorMessage (message) {
+    return `<br><small>${message}</small>`
   }
 
   $('#contact-form').validate({
@@ -144,48 +134,65 @@ $(function() {
       message: {
         required: true
       },
-      replyto: {
+      replyTo: {
         required: true,
         email: true
       },
-      fullname: {
+      fullName: {
         required: true
       }
     },
     submitHandler: function(form) {
       $form = $(form)
-      $('#signtime').val(Date.now() - loaded)
-      var action = $form.attr('action')
-      var formarray = $form.serializeArray()
-      var json = {}
+      const action = $form.attr('action')
+      const formarray = $form.serializeArray()
+      let json = {}
       jQuery.each(formarray, function() {
         json[this.name] = this.value || ''
       })
-      $.post(action, json, function(response, status) {
-        if (status === 'success' && response.success) {
-          swal({
-            title: 'Thank you!',
-            content: {
-              element: 'div',
-              attributes: {
-                innerHTML: '<p>Your message has been successfully sent.</p><p>I appreciate that you’ve taken the time to write me. I’ll get back to you as soon as possible.</p>',
-              }
-            },
-            icon: 'success',
-          })
-          $form.trigger('reset')
-        } else {
-          swal({
-            title: 'Oops...',
-            content: {
-              element: 'p',
-              attributes: {
-                innerHTML: 'Something went wrong! Possible reason(s): ' + renderMessages(response.messages),
-              }
-            },
-            icon: 'error',
-          })
+      fetch(action, {
+        method: "POST",
+        body: JSON.stringify(json),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
         }
+      })
+      .then((response) => {
+        if (response.status === 404) {
+          throw new Error('Cannot find the endpoint to send the message')
+        }
+        if (response.status === 500) {
+          throw new Error('Failed to send the message due to error returned by the email provider')
+        }
+        return response.json()
+      })
+      .then((json) =>  {
+        if (json.error) {
+          throw new Error(json.message)
+        }
+        swal({
+          title: 'Thank you!',
+          content: {
+            element: 'div',
+            attributes: {
+              innerHTML: '<p>Your message has been successfully sent.</p><p>I appreciate that you’ve taken the time to write me. I’ll get back to you as soon as possible.</p>',
+            }
+          },
+          icon: 'success',
+        })
+        $form.trigger('reset')
+      })
+      .catch(err => {
+        swal({
+          title: 'Oops...',
+          content: {
+            element: 'p',
+            attributes: {
+              innerHTML: 'Something went wrong! Possible reason(s): ' + renderErrorMessage(err.message),
+            }
+          },
+          icon: 'error',
+        })
       })
     }
   })
