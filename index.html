@@ -1,50 +1,69 @@
----
-layout: default
----
-<div class="home">
-    {% if paginator.page == 1 %}
-    <header class="blog-header" itemscope="" itemtype="http://schema.org/Person">
-        <div class="blog-logo"></div>
-        <h1 class="blog-title"><a href="https://huseyin.org" itemprop="url">{{site.title}}</a></h1>
-        <h2 class="blog-author">by <a href="/about/" itemprop="name">{{site.author}}</a></h2>
-    </header>
-    {% endif %}
-    <ul class="post-list">
-        {% for post in paginator.posts %}
-        <li>
-            <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-            <p class="post-meta">Posted on <time datetime='{{post.date | date: "%Y-%m-%d" }}'>{{ post.date | date: "%b %-d, %Y" }}</time></p>
-            <article class="post-content">
-                {{ post.content }}
-            </article>
-        </li>
-        {% endfor %}
-    </ul>
-
-    {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-        {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="btn-icon" title="Previous Page"><i class="ion-ios-arrow-left"></i></a>
-        {% else %}
-        <a href="#" class="btn-icon btn-disabled" title="No Previous Page"><i class="ion-ios-arrow-left"></i></a>
-        {% endif %}
-
-        {% for page in (1..paginator.total_pages) %}
-            {% if page == paginator.page %}
-            <a href="#" class="page-number page-number-selected btn-disabled">{{ page }}</a>
-            {% elsif page == 1 %}
-            <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}" class="page-number">{{ page }}</a>
-            {% else %}
-            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="page-number">{{ page }}</a>
-            {% endif %}
-        {% endfor %}
-
-        {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="btn-icon" title="Next Page"><i class="ion-ios-arrow-right"></i></a>
-        {% else %}
-        <a href="#" class="btn-icon btn-disabled" title="No Next Page"><i class="ion-ios-arrow-right"></i></a>
-        {% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="I am the Head of Software Engineering, working as a Technical Assurance Director at Wood plc in the UK">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Huseyin M Ozyilmaz" />
+  <meta property="og:description" content="I am the Head of Software Engineering, working as a Technical Assurance Director at Wood plc in the UK" />
+  <meta property="og:url" content="https://huseyin.org/" />
+  <meta property="og:image" content="https://resources/images/huseyin-ozyilmaz-profile-photo-lg.webp" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@huseyinozyilmaz">
+  <meta name="twitter:url" content="https://huseyin.org/">
+  <meta name="twitter:creator" content="@huseyinozyilmaz">
+  <meta name="twitter:title" content="Huseyin M Ozyilmaz">
+  <meta name="twitter:description" content="I am the Head of Software Engineering, working as a Technical Assurance Director at Wood plc in the UK">
+  <meta name="twitter:image" content="https://resources/images/huseyin-ozyilmaz-profile-photo-lg.webp">
+  <link rel="stylesheet" href="/resources/css/styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/resources/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/resources/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/resources/icons/favicon-16x16.png">
+  <link rel="manifest" href="/resources/icons/site.webmanifest">
+  <link rel="mask-icon" href="/resources/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/resources/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/resources/icons/browserconfig.xml">
+  <title>Huseyin M Ozyilmaz</title>
+</head>
+<body onload="onBodyLoad()">
+  <script src="/resources/js/main.js"></script>
+  <nav>
+    <button class="theme-switch" title="Switch to light mode" onclick="toggleTheme()">
+      <svg id="icon-light" style="width: 16px; height: 16px; display: none;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg>
+      <svg id="icon-dark" style="width: 16px; height: 16px; display: none; color: white;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216c88.68 0 166.73-51.57 200-128c-26.39 11.49-57.38 16-88 16c-119.29 0-216-96.71-216-216z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path></svg>
+    </button>
+  </nav>
+  <header>
+    <img src="resources/images/huseyin-ozyilmaz-profile-photo-md.webp" 
+      class="profile-photo" 
+      alt="Profile photo of Huseyin Ozyilmaz">
+    <h1 class="profile-name">Huseyin M Ozyilmaz</h1>
+    <h2 class="profile-title">Technical Assurance Director | Head of Software Engineering </h2>
+    <div>
+      <a class="icon-btn" href="https://uk.linkedin.com/in/huseyinozyilmaz" rel="noopener noreferrer" title="linkedin Profile">
+        <span class="">
+          <svg stroke="currentColor" fill="white" stroke-width="0" viewBox="0 0 1024 1024" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM349.3 793.7H230.6V411.9h118.7v381.8zm-59.3-434a68.8 68.8 0 1 1 68.8-68.8c-.1 38-30.9 68.8-68.8 68.8zm503.7 434H675.1V608c0-44.3-.8-101.2-61.7-101.2-61.7 0-71.2 48.2-71.2 98v188.9H423.7V411.9h113.8v52.2h1.6c15.8-30 54.5-61.7 112.3-61.7 120.2 0 142.3 79.1 142.3 181.9v209.4z"></path></svg>
+        </span>
+      </a>
+      <a class="icon-btn" href="https://github.com/huseyinozyilmaz" rel="noopener noreferrer" title="GitHub Profile">
+        <span class="">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0 1 38.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
+          </svg>
+        </span>
+      </a>
     </div>
-    {% endif %}
+  </header>
 
-</div>
+  <section class="info">
+    <div>Leading a Solution Delivery Centre, providing technical assurance and leadership to a global software development team with 100+ highly skilled professionals at one of the world's leading consulting and engineering companies operating across 60 countries.</div>
+  </section>
+  
+  <footer class="footer">
+    <span>© 2003</span>-<span id="currentYear"></span>
+  </footer>
+</body>
+</html>

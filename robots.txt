@@ -1,4 +1,2 @@
-Sitemap: https://huseyin.org/sitemap.xml
-
 User-agent: *
 Allow: *

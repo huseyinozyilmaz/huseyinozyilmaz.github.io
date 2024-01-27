@@ -1,0 +1,121 @@
+:root {
+  --text-color: #15141B;
+  --bg-color: #fff;
+  --text-color-dark: #fff;
+  --bg-color-dark: #15141B;
+  --bg-color-dark-90: #272532;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  letter-spacing: 0.15rem;
+  font-size: 16px;
+  
+}
+body.dark {
+  color: var(--text-color-dark);
+  background-color: var(--bg-color-dark);
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+header {
+  margin-top: 100px;
+}
+.profile-photo {
+  width: 156px;
+  height: 156px; 
+  border-radius: 100%;
+  margin: auto;
+}
+.profile-name {
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+.profile-title {
+  font-weight: 300;
+  margin: 0px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.theme-switch {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px; 
+  width: 26px; 
+  height: 26px; 
+  opacity: 75%;
+  cursor: pointer; 
+  background-color: transparent; 
+  border: none;
+}
+.mode-switch:hover {
+  opacity: 100%;
+}
+
+.icon-btn {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 100%;
+}
+
+body.dark .icon-btn {
+  background-color: var(--bg-color-dark-90);
+  color: #fff;
+}
+
+path {
+  fill: var(--bg-color-dark);
+}
+body.dark path {
+  fill: var(--bg-color);
+}
+
+.info {
+  padding: 45px 5%;
+  max-width: 800px;
+  text-align: justify;
+  margin: 0 auto;
+  letter-spacing: 0.15rem;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 10px;
+  font-size: 10px;
+}
