@@ -98,6 +98,9 @@ body.dark .icon-btn {
   background-color: var(--bg-color-dark-90);
   color: #fff;
 }
+body.dark footer {
+  background-color: var(--bg-color-dark);
+}
 
 path {
   fill: var(--bg-color-dark);
@@ -118,8 +121,10 @@ footer {
   width: 100%;
   text-align: center;
   position: fixed;
-  bottom: 10px;
+  bottom: 0px;
   font-size: 10px;
+  background-color: var(--bg-color);
+  height: 20px;
 }
 
 /* Small devices (tablets, 768px and up) */
