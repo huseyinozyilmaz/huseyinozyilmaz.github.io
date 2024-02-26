@@ -155,6 +155,7 @@ body.dark path {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .work-areas-item {
   width: 10rem;
@@ -341,7 +342,11 @@ body.dark .home-btn {
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) { }
+@media (min-width: 992px) {
+  .page-section {
+    padding: 3rem 4%;
+  }
+ }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { }
