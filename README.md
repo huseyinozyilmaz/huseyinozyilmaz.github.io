@@ -1,9 +1,47 @@
-# huseyin.org
-Official Website
+# HUSEYIN.ORG
 
-## Development
+My Personal Website
 
-To run in development environment:
+## Setup
+
+Make sure to install the dependencies:
+
+```bash
+npm install
+
 ```
-npx http-server
+
+Check the latest versions of the dependencies:
+```bash
+ncu
+```
+
+Update dependencies:
+```bash
+ncu -u
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+npm run dev
+
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+npm run generate
+
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+
 ```

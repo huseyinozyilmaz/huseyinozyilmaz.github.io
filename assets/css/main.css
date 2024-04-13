@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply tracking-widest;
+    @apply font-light;
+  }
+  a {
+    @apply uppercase;
+    @apply font-semibold;
+    @apply text-sm;
+    @apply text-emerald-700;
+    @apply text-blue-700;
+    @apply text-fuchsia-700;
+    @apply text-teal-700;
+
+    @apply text-sky-700;
+  }
+}
+
+@layer components {
+  .post p {
+    padding: 0.75rem 0px;
+  }
+}
+
+/* 
+--bg-color-dark: #15141B
+--bg-color-dark-90: #272532
+Dark-link color #EAB2A0 
+
+*/
