@@ -28,7 +28,9 @@
 </template>
 
 <script setup>
-import ListWithIcons from '~/components/ListWithIcons.vue';
-
 const profile = useProfile()
+useSeoMeta({
+  title: profile.name,
+  description: 'Personal website',
+})
 </script>

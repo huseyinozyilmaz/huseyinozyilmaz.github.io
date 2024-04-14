@@ -1,11 +1,13 @@
 ---
-uid: 6af63aca-a7be-4baf-868e-3337d0434e78
 title: "Thoughts on software complexity"
 headline: "One of the most challenging areas in software development is about managing complexity"
 datetime: '2012-05-07T13:01:11.435Z'
 isPublished: true
-isPinned: true
-image: /resources/posts/complexity.webp
+image: 
+  src: '/resources/posts/complexity.webp'
+  alt: 'Software complexity'
+  width: 400
+  height: 280
 ---
 
 One of the most challenging areas in software development is about managing complexity. Every new piece of code that we write contributes to the overall complexity of the system. This is the same complexity that urges every one of us to re-design and re-code the whole system from scratch when it reaches to a certain threshold. 

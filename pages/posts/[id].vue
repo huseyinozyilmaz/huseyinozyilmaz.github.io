@@ -10,7 +10,11 @@
           <time :datetime="doc.datetime" class='text-gray-500 text-sm'>Posted on {{ (new Date(doc.datetime)).toDateString() }}</time>
           <div class='py-6'>
             <figure class='md:float-left md:pr-5 pb-4'>
-              <img class='rounded-lg w-full md:w-[400px]' :src="doc.image" :alt="doc.title" width="400" height="400" />
+              <img class='rounded-lg w-full md:w-[400px]' 
+                :src="doc.image.src" 
+                :alt="doc.image.alt" 
+                :width="doc.image.width" 
+                :height="doc.image.height" />
             </figure>
             <ContentRenderer :value="doc" class="post"/>
           </div>

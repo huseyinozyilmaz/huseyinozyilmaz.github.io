@@ -4,7 +4,8 @@
     <div class='flex gap-6 lg:gap-2 flex-wrap justify-center py-10'>
       <ContentList path="/posts" v-slot="{ list }" 
         :query="{
-          where: { isPublished: true }
+          where: { isPublished: true },
+          sort: { datetime: -1 }
         }">
         <div v-for="post in list" :key="post._path">
           <PostItem :post="post" />
@@ -16,4 +17,8 @@
 
 <script setup>
 const app = useAppConfig()
+useSeoMeta({
+  title: `${app.title} | ${app.author}`,
+  description: app.description,
+})
 </script>
