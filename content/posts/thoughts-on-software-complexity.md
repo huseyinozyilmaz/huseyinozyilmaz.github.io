@@ -1,8 +1,8 @@
 ---
-id: 6af63aca-a7be-4baf-868e-3337d0434e78
+uid: 6af63aca-a7be-4baf-868e-3337d0434e78
 title: "Thoughts on software complexity"
 headline: "One of the most challenging areas in software development is about managing complexity"
-date: '2012-05-07'
+datetime: '2012-05-07T13:01:11.435Z'
 isPublished: true
 isPinned: true
 image: /resources/posts/complexity.webp

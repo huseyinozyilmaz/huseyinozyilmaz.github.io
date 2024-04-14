@@ -1,8 +1,8 @@
 ---
-id: 9cd6d1f0-ed3a-4143-a66f-c2faab5f28f9
+uid: 9cd6d1f0-ed3a-4143-a66f-c2faab5f28f9
 title: The True Value of Software
 headline: A software application’s feature list or its level of sophistication cannot determine its value.
-date: '2012-04-16'
+datetime: '2012-04-16T22:44:12.123Z'
 isPublished: true
 isPinned: false
 image: /resources/posts/true-value.webp
