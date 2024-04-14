@@ -24,6 +24,10 @@
   .post p {
     padding: 0.75rem 0px;
   }
+  .post img {
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+  }
 }
 
 /* 

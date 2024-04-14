@@ -12,7 +12,7 @@
           <figure class='md:float-left md:pr-5 pb-4'>
             <img class='rounded-lg w-full md:w-[400px]' :src="doc.image" :alt="doc.title" width="400" height="400" />
           </figure>
-          <ContentRenderer :value="doc" />
+          <ContentRenderer :value="doc" class="post"/>
         </div>
       </article>
     </ContentDoc>  
