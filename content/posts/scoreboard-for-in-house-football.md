@@ -1,4 +1,5 @@
 ---
+id: 56df5a1b-5889-492c-b4d7-9e27b460a7ea
 title: Scoreboard for your in-house football
 headline: Keep track of your points scored in your family football games!
 date: '2022-12-28'

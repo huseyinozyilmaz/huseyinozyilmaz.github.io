@@ -1,7 +1,7 @@
 <template>
-  <div class=''>
+  <div>
     <div class='flex flex-row flex-wrap gap-6  lg:gap-2 lg:justify-center'>
-      <PostItem v-for="(post, index) in posts" :post="post" :key="index"/>
+      <PostItem v-for="post in posts" :post="post" :key="post.id"/>
     </div>
     <NuxtLink href='/posts' class="text-center w-full block py-8 mb-10" title='See all posts'>See all posts</NuxtLink>
   </div>
@@ -10,7 +10,7 @@
 <script setup>
 
 const { data: posts } = await useAsyncData('posts', () => queryContent('posts')
-  .only(['_path', 'title', 'headline', 'date', 'image'])
+  .only(['_path', 'id', 'title', 'headline', 'date', 'image'])
   .where({ isPublished: true })
   .sort({ date: -1 })
   .limit(3)

@@ -1,4 +1,5 @@
 ---
+id: 6af63aca-a7be-4baf-868e-3337d0434e78
 title: "Thoughts on software complexity"
 headline: "One of the most challenging areas in software development is about managing complexity"
 date: '2012-05-07'
