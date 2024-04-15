@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-col items-center text-center">
-    <div class="mt-24 text-xl uppercase">{{ app.author }}</div>
+    <NuxtLink to="/" class="text-black hover:text-sky-700 flex-col gap-2 mt-24">
+      <img src="/resources/icons/logo.svg" alt="Site logo" width="32" height="32" class="block m-auto mb-3">
+      <div class="text-xl uppercase">{{ author }}</div>
+    </NuxtLink>
     <div class="text-8xl font-black mt-24">
       404
     </div>
@@ -15,5 +18,5 @@
 </template>
 
 <script setup>
-const app = useAppConfig()
+const { author } = useAppConfig()
 </script>
