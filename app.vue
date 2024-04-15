@@ -1,10 +1,10 @@
 <template>
   <div class="m-auto lg:max-w-[900px] px-3">
-    <header class="flex flex-col md:flex-row text-center py-3 md:mt-3">
-      <h1 title="Site Name" class=" text-black mt-1">
-        <NuxtLink to="/" class="text-black hover:text-sky-700 flex gap-2 ">
-          <img :src="app.logo.src" :alt="app.logo.alt" width="24" height="24">
-          <span class="h-[32px] leading-7">{{ app.profile.shortName }}</span>
+    <header class="flex flex-col md:flex-row text-center py-3 md:mt-3 font-mono">
+      <h1 title="Site Name" class="mt-1">
+        <NuxtLink to="/" class="flex gap-2 justify-center">
+          <img :src="app.logo.src" :alt="app.logo.alt" :title="app.profile.shortName" width="24" height="24">
+          <span class="h-[32px] leading-7 hidden md:block">{{ app.profile.shortName }}</span>
         </NuxtLink>
       </h1>
       <nav class="flex gap-5 md:flex-1 justify-center md:justify-end mt-3 flex-wrap">
