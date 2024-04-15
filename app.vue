@@ -3,8 +3,8 @@
     <header class="flex flex-col md:flex-row text-center py-3 md:mt-3">
       <h1 title="Site Name" class=" text-black mt-1">
         <NuxtLink to="/" class="text-black hover:text-sky-700 flex gap-2 ">
-          <img src="/resources/icons/logo.svg" alt="Site logo" width="24" height="24">
-          <span class="h-[32px] leading-7">Huseyin Ozyilmaz</span>
+          <img :src="app.logo.src" :alt="app.logo.alt" width="24" height="24">
+          <span class="h-[32px] leading-7">{{ app.profile.shortName }}</span>
         </NuxtLink>
       </h1>
       <nav class="flex gap-5 md:flex-1 justify-center md:justify-end mt-3 flex-wrap">
@@ -29,7 +29,6 @@ useHead({
     lang: 'en'
   },
   meta: [
-    { name: 'description', content: app.description },
     { name: 'msapplication-TileColor', content: '#da532c' },
     { name: 'msapplication-config', content: '/resources/icons/browserconfig.xml' },
     { name: 'theme-color', content: '#15141B' }
@@ -45,20 +44,20 @@ useHead({
 })
 
 useSeoMeta({
-  title: app.author,
+  title: app.title,
   description: app.description,
   ogType: 'website',
   ogUrl: app.url,
-  ogTitle: app.author,
+  ogTitle: app.title,
   ogDescription: app.description,
-  ogImage: 'https://huseyin.org/resources/images/huseyin-ozyilmaz-profile-photo-lg.webp',
-  ogImageAlt: app.author,
+  ogImage: app.profile.social.twitter.image.src,
+  ogImageAlt: app.profile.social.twitter.image.alt,
   twitterCard: 'summary_large_image',
-  twitterSite: '@huseyinozyilmaz',
-  twitterCreator: '@huseyinozyilmaz',
-  twitterTitle: app.author,
+  twitterSite: app.profile.social.twitter.id,
+  twitterCreator: app.profile.social.twitter.id,
+  twitterTitle: app.title,
   twitterDescription: app.description,
-  twitterImage: 'https://huseyin.org/resources/images/huseyin-ozyilmaz-profile-photo-lg.webp',
-  twitterImageAlt: app.author
+  twitterImage: app.profile.social.twitter.image.src,
+  twitterImageAlt: app.profile.social.twitter.image.alt
 })
 </script>
