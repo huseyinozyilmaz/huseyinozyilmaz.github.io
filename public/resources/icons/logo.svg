@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15.1108501,112.88915 L128,-2.27373675e-13 L512,-2.27373675e-13 L512,384 L496.88915,399.11085 L384,512 L-2.27373675e-13,512 L2.27373675e-13,128 L15.1108501,112.88915 Z" id="Combined-Shape" fill="#15141B"></path>
+        <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="183.745822 74 160 74 160 438 183.745822 438 183.745822 259.033333 327.736446 259.033333 327.736446 438 351.482268 438 351.482268 74 327.736446 74 327.736446 238.811111 183.745822 238.811111"></polygon>
+    </g>
+</svg>

@@ -2,7 +2,10 @@
   <div class="m-auto lg:max-w-[900px] px-3">
     <header class="flex flex-col md:flex-row text-center py-3 md:mt-3">
       <h1 title="Site Name" class=" text-black mt-1">
-        <NuxtLink to="/" class="text-black hover:text-sky-700">Huseyin Ozyilmaz</NuxtLink>
+        <NuxtLink to="/" class="text-black hover:text-sky-700 flex gap-2 ">
+          <img src="/resources/icons/logo.svg" alt="Site logo" width="24" height="24">
+          <span class="h-[32px] leading-7">Huseyin Ozyilmaz</span>
+        </NuxtLink>
       </h1>
       <nav class="flex gap-5 md:flex-1 justify-center md:justify-end mt-3 flex-wrap">
         <NuxtLink to="/#work">Work</NuxtLink>
