@@ -10,5 +10,18 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  // Removes client side hydration by removing JSON Payloads
+  experimental: {
+    payloadExtraction: false,
+    renderJsonPayloads: false
+  },
+  // Removes client side hydration by removing all JavaScripts
+  routeRules: {
+    '/': { prerender: true, experimentalNoScripts: true },
+    '/posts/**': { prerender: true, experimentalNoScripts: true }
+  },
+  nitro: {
+    preset: 'static'
+  },
   modules: ["@nuxt/content"]
 })
