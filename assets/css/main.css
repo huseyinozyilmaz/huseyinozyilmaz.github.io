@@ -28,6 +28,20 @@
     border-radius: 0.5rem;
     margin: 1rem 0;
   }
+  .post h2 {
+    padding-top: 1.2rem;
+  }
+  .post h2 > a {
+    font-size: 1.1rem;
+  }
+  .post ul {
+    list-style-type: square;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .post li {
+    padding: 0.4rem 0;
+  }
 }
 
 /* 
