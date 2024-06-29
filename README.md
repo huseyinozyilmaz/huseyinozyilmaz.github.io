@@ -11,14 +11,9 @@ npm install
 
 ```
 
-Check the latest versions of the dependencies:
+Check the latest versions of the dependencies and update:
 ```bash
-ncu
-```
-
-Update dependencies:
-```bash
-ncu -u
+npm run update
 ```
 
 ## Development Server
