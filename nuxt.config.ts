@@ -10,6 +10,10 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  site: { 
+    url: 'https://huseyin.org', 
+    name: 'Huseyin M Ozyilmaz'
+  }, 
   telemetry: false,
   css: ['~/assets/css/main.css'],
 
@@ -21,13 +25,16 @@ export default defineNuxtConfig({
 
   // Removes client side hydration by removing all JavaScripts
   routeRules: {
-    '/': { prerender: true, experimentalNoScripts: true },
-    '/posts/**': { prerender: true, experimentalNoScripts: true }
+    '/': { prerender: true, experimentalNoScripts: true, sitemap: { lastmod: '2025-02-04' } },
+    '/posts/**': { prerender: true, experimentalNoScripts: true, sitemap: { lastmod: '2025-02-04' } }
   },
 
   nitro: {
-    preset: 'static'
+    preset: 'static',
+    prerender: {
+      routes: ['/sitemap.xml', '/robots.txt']
+    }
   },
 
-  modules: ["@nuxt/content", '@nuxt/image']
+  modules: ['@nuxtjs/robots', '@nuxtjs/sitemap', '@nuxt/content', '@nuxt/image']
 })
