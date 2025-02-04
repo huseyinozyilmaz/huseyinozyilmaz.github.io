@@ -1,6 +1,5 @@
 ---
 title: Hello
-description: Hello World
 headline: Hello World
 datetime: '2022-12-28T19:24:59.435Z'
 isPublished: false

@@ -1,15 +1,18 @@
 <template>
   <div>
-    <ContentList path="/posts" v-slot="{ list }" 
-      :query="{
-        where: { isPublished: true },
-        sort: { datetime: -1 },
-        limit: 3
-      }">
-      <div class='flex flex-row flex-wrap gap-6 lg:gap-2 lg:justify-center'>
-        <PostItem v-for="post in list" :post="post" :key="post._path"/>
-      </div>
-    </ContentList>
+    <div class='flex flex-row flex-wrap gap-6 lg:gap-2 lg:justify-center'>
+      <PostItem v-for="post in posts" :post="post" :key="post.id"/>
+    </div>
     <NuxtLink href='/posts' class="text-center w-full block py-8 mb-10" title='See all posts'>See all posts</NuxtLink>
   </div>
 </template>
+
+<script setup lang="ts">
+const { data: posts  } = await useAsyncData('/posts', () => {
+  return queryCollection('posts')
+    .where('isPublished', '=', true)
+    .order('datetime', 'DESC')
+    .limit(3)
+    .all()
+})
+</script>
