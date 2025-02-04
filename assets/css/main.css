@@ -1,6 +1,57 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-midnight: #2d4356;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility post {
+  & p {
+    padding: 0.75rem 0px;
+  }
+  & img {
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+  }
+  & h2 {
+    padding-top: 1.2rem;
+  }
+  & h2 > a {
+    font-size: 1.1rem;
+  }
+  & ul {
+    list-style-type: square;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  & li {
+    padding: 0.4rem 0;
+  }
+}
+
+/* 
+--bg-color-dark: #15141B
+--bg-color-dark-90: #272532
+Dark-link color #EAB2A0 
+
+*/
 
 @layer base {
   body {
@@ -19,34 +70,3 @@
     @apply text-midnight;
   }
 }
-
-@layer components {
-  .post p {
-    padding: 0.75rem 0px;
-  }
-  .post img {
-    border-radius: 0.5rem;
-    margin: 1rem 0;
-  }
-  .post h2 {
-    padding-top: 1.2rem;
-  }
-  .post h2 > a {
-    font-size: 1.1rem;
-  }
-  .post ul {
-    list-style-type: square;
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .post li {
-    padding: 0.4rem 0;
-  }
-}
-
-/* 
---bg-color-dark: #15141B
---bg-color-dark-90: #272532
-Dark-link color #EAB2A0 
-
-*/
