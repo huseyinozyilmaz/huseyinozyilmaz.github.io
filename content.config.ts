@@ -1,4 +1,5 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { asSitemapCollection } from '@nuxtjs/sitemap/content'
 
 export default defineContentConfig({
   collections: {
@@ -6,21 +7,26 @@ export default defineContentConfig({
       type: 'page',
       source: '**/*.md'
     }),
-    posts: defineCollection({
-      type: 'page',
-      source: 'posts/*.md',
-      schema: z.object({
-        title: z.string(),
-        headline: z.string().optional(),
-        datetime: z.string(),
-        isPublished: z.boolean(),
-        image: z.object({
-          src: z.string(),
-          alt: z.string(),
-          width: z.number(),
-          height: z.number()
+    posts: defineCollection(
+      asSitemapCollection({
+        type: 'page',
+        source: 'posts/*.md',
+        schema: z.object({
+          title: z.string(),
+          headline: z.string().optional(),
+          datetime: z.string(),
+          isPublished: z.boolean(),
+          image: z.object({
+            src: z.string(),
+            alt: z.string(),
+            width: z.number(),
+            height: z.number()
+          }),
+          sitemap: z.object({
+            lastmod: z.string().optional()
+          })
         })
       })
-    })
+    )
   }
 })

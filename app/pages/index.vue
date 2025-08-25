@@ -32,5 +32,6 @@ const app = useAppConfig()
 useSeoMeta({
   title: app.title,
   description: app.description,
+  articleModifiedTime: new Date().toISOString()
 })
 </script>

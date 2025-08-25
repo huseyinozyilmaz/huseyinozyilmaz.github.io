@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-const { data: posts  } = await useAsyncData('/posts', () => {
+const { data: posts  } = await useAsyncData('latest-posts', () => {
   return queryCollection('posts')
     .where('isPublished', '=', true)
     .order('datetime', 'DESC')

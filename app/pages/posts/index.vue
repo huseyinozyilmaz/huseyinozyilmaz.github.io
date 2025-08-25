@@ -11,15 +11,17 @@
 
 <script setup>
 const app = useAppConfig()
-useSeoMeta({
-  title: `${app.blogTitle} | ${app.title}`,
-  description: app.description,
-})
 
 const { data: posts  } = await useAsyncData('/posts', () => {
   return queryCollection('posts')
     .where('isPublished', '=', true)
     .order('datetime', 'DESC')
     .all()
+})
+
+useSeoMeta({
+  title: `${app.blogTitle} | ${app.title}`,
+  description: app.description,
+  articleModifiedTime: posts.value[0]?.datetime || new Date().toISOString()
 })
 </script>
