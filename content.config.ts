@@ -22,9 +22,10 @@ export default defineContentConfig({
             width: z.number(),
             height: z.number()
           }),
-          sitemap: z.object({
-            lastmod: z.string().optional()
-          })
+          sitemap: z.union([
+            z.literal(false),
+            z.object({ lastmod: z.string().optional() })
+          ]).optional()
         })
       })
     )

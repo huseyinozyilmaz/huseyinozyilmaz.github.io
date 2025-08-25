@@ -40,13 +40,34 @@ export default defineNuxtConfig({
     'content:file:afterParse'(ctx) {
       if (!ctx.file.path?.includes('/posts/')) return
 
-      const iso = (ctx.content as any).datetime
-      if (!iso) return
+      type WithMeta = {
+        datetime?: string
+        isPublished?: boolean
+        sitemap?: false | { lastmod?: string }
+      }
 
-      const content = ctx.content as any
-      content.sitemap = content.sitemap || {}
+      const c = ctx.content as WithMeta
+
+      if (c.isPublished !== true) {
+        c.sitemap = false
+        return
+      }
+      if (!c.datetime) return
+
       // lastmod must be W3C/ISO 8601 (e.g. 2025-08-01 or 2025-08-01T10:30:00Z)
-      content.sitemap.lastmod = iso
+      if (c.datetime) {
+        c.sitemap = c.sitemap ?? {}
+        if (c.sitemap !== false) {
+          c.sitemap.lastmod = c.datetime
+        }
+      }
+    }
+  },
+
+  content: {
+    experimental: {
+      // Use Node 22+ built-in `node:sqlite` connector
+      sqliteConnector: 'native'
     }
   },
 
