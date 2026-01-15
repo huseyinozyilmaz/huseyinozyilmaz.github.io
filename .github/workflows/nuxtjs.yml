@@ -29,6 +29,8 @@ jobs:
           cache: 'pnpm'
       - name: Enable Corepack
         run: corepack enable
+      - name: Activate pnpm (from package.json packageManager)
+        run: corepack install
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Generate static pages
