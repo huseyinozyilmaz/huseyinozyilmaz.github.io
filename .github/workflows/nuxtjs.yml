@@ -22,16 +22,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Enable Corepack
-        run: corepack enable
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: 'pnpm'
+      - name: Enable Corepack
+        run: corepack enable
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
       - name: Generate static pages
-        run: npm run generate
+        run: pnpm run generate
         env:
           NITRO_PRESET: github_pages
       - name: Upload artifact
