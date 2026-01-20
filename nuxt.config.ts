@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite"
 export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: false },
-  compatibilityDate: '2025-02-04',
+  compatibilityDate: '2026-01-20',
   vite: {
     plugins: [
       tailwindcss(),
@@ -19,6 +19,11 @@ export default defineNuxtConfig({
 
   // Removes client side hydration by removing JSON Payloads
   experimental: {
+    defaults: {
+      nuxtLink: {
+        trailingSlash: 'append'
+      }
+    },
     payloadExtraction: false,
     renderJsonPayloads: false
   },
@@ -27,6 +32,10 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true, noScripts: true },
     '/posts/**': { prerender: true, noScripts: true }
+  },
+
+  sitemap: {
+    zeroRuntime: true
   },
 
   nitro: {
