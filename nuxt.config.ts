@@ -12,7 +12,8 @@ export default defineNuxtConfig({
   },
   site: { 
     url: 'https://huseyin.org', 
-    name: 'Huseyin M Ozyilmaz'
+    name: 'Huseyin M Ozyilmaz',
+    trailingSlash: true
   }, 
   telemetry: false,
   css: ['~/assets/css/main.css'],
