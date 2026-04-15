@@ -1,5 +1,14 @@
+/// <reference types="@nuxt/content" />
+import { defineNuxtConfig } from 'nuxt/config'
+import type { FileAfterParseHook } from '@nuxt/content'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite"
+
+declare module 'nuxt/schema' {
+  interface NuxtHooks {
+    'content:file:afterParse': (ctx: FileAfterParseHook) => Promise<void> | void
+  }
+}
 
 export default defineNuxtConfig({
   ssr: true,
@@ -9,6 +18,9 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    optimizeDeps: {
+      include: []
+    }
   },
   site: { 
     url: 'https://huseyin.org', 
@@ -47,13 +59,13 @@ export default defineNuxtConfig({
   },
 
   hooks: {
-    'content:file:afterParse'(ctx) {
+    'content:file:afterParse'(ctx: FileAfterParseHook) {
       if (!ctx.file.path?.includes('/posts/')) return
 
       type WithMeta = {
         datetime?: string
         isPublished?: boolean
-        sitemap?: false | { lastmod?: string }
+        sitemap?: false | { lastmod?: Date }
       }
 
       const c = ctx.content as WithMeta
@@ -64,11 +76,11 @@ export default defineNuxtConfig({
       }
       if (!c.datetime) return
 
-      // lastmod must be W3C/ISO 8601 (e.g. 2025-08-01 or 2025-08-01T10:30:00Z)
+      // Keep a Date in content metadata; sitemap serialization will format it.
       if (c.datetime) {
         c.sitemap = c.sitemap ?? {}
         if (c.sitemap !== false) {
-          c.sitemap.lastmod = c.datetime
+          c.sitemap.lastmod = new Date(c.datetime)
         }
       }
     }
