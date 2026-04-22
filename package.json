@@ -14,10 +14,10 @@
   "dependencies": {
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/robots": "^6.0.7",
-    "@nuxtjs/sitemap": "^8.0.12",
-    "@tailwindcss/vite": "^4.2.2",
+    "@nuxtjs/sitemap": "^8.0.13",
+    "@tailwindcss/vite": "^4.2.4",
     "nuxt": "^4.4.2",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
     "@nuxt/content": "^3.13.0",
